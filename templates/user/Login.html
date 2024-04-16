@@ -11,10 +11,13 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
 </head>
 <body>
-
+{% if messages %}
+{% include "alert/alert.html" %}
+{% endif %}
+<br>
+<br>
   {% if form.errors %}
-      
-        <div class="alert alert-danger">
+        
             <strong>Error!</strong> Please correct the following errors:
             <ul>
                 {% for field, errors in form.errors.items %}
@@ -23,7 +26,7 @@
                     {% endfor %}
                 {% endfor %}
             </ul>
-        </div>
+        
     {% endif %}
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
