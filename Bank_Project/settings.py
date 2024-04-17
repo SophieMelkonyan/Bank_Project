@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1a#tr(x$ow$fd!ew$^&p!!vt6!vp3@6cc($ey7z=oazx7j9^=i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -51,6 +51,14 @@ MIDDLEWARE = [
 ]
 AUTH_USER_MODEL = "User.User"
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "sophiemelkonyan77@gmail.com"
+EMAIL_HOST_PASSWORD = "bwoc wypo xxju kqva"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
 ROOT_URLCONF = 'Bank_Project.urls'
 
 TEMPLATES = [
@@ -71,6 +79,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Bank_Project.wsgi.application'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 
 # Database

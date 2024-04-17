@@ -1,15 +1,15 @@
+from django.shortcuts import render, redirect
+
 from .form import CustomUserCreationForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import FormView
 from django.contrib import messages
-from django.contrib.auth.views import LoginView as Login, LogoutView as Logout
+
+from django.contrib.auth import authenticate, login
+
 
 User = get_user_model()
 
-from django.contrib import messages
-from django.contrib.auth.views import LoginView as BaseLoginView
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
 
 class UserRegistrationView(FormView):
     template_name = 'user/Login.html'
@@ -17,23 +17,28 @@ class UserRegistrationView(FormView):
     model = User
     success_url = '/'
 
+
+
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, 'Account was created successfully!    ')
+        messages.success(self.request,"You have successfully registered")
         return super().form_valid(form)
 
-class LoginView(BaseLoginView):
-    template_name = 'user/login.html'
-    form_class = AuthenticationForm
 
-    def form_valid(self, form):
-        user = form.get_user()
-        login(self.request, user)
-        messages.success(self.request, 'You have been logged in successfully!')
-        return super().form_valid(form)
+def login_view(request):
 
-    template_name = "user/Login.html"
+    if(request.method == 'POST'):
+        email = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(request, email=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect("home:home")
+        else:
+
+            return render(request, 'user/login.html', {'email': email})
 
 
-class LogoutView(Logout):
-    pass
+
+
