@@ -1,8 +1,8 @@
-from django.shortcuts import render
+
 from django.views.generic import TemplateView
 
 
 class Home(TemplateView):
-    template_name = "main_base.html"
+    template_name = "profile/profile.html"
 
 
