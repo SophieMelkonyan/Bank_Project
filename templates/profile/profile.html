@@ -2,40 +2,126 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 <div class="container">
-	<div class="front side">
-		<div class="content">
-			<h1>Hakkam Abdullah</h1>
+    <div class="front side">
+        
+        <div class="content">
+            <br>
+            <br>
+            
+            <h1 id="card-number">{{ profile.card_number }}</h1>
+            <br>
+            
+            <div class="date">Created at /{{ profile.user.created_at }}</div>
             
             
+            <div class="name">Your Name : {{ profile.user.first_name }} {{ profile.user.last_name }}</div>
+            <div id="card-type" class="logo1"><img src="{% static 'img/Mastercard.png' %}"></div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="back side">
+        <div class="black"></div>
+        
+        
+        <div class="content">
             
             <br>
-			<p>I am a graphic designer and art director. I am as well specialised in front end web design, user experience and creating identities. Throughout my career, I have worked with companies of all shapes and sizes that enriched my experience
-			</p>
-		</div>
-	</div>
-	<div class="back side">
-		<div class="content">
-			<h1>Contact Me</h1>
-			
-				<label>Your First Name : {{ profile.user.first_name }}</label>
-				
-				<label>Your Last Name :{{ profile.user.first_name }}</label>
-				
-				<label>Your message :{{ profile.card_account }}</label>
-				
-                <label>Your message :{{ profile.bank_account}}</label>
+            <br>
+            <br>
+            <div class="card_acc">Your card account: {{ profile.card_account }}</div>
+            <br>
+            <br>
             
-            <label>Your message :{{ profile.card_number}}</label>
-
-{#            <form method="post">#}
-{#    {% csrf_token %}#}
-{#    {{ form}}#}
-{##}
-{#    <button type="submit">Submit</button>#}
-{#</form>#}
-			
-			
-		</div>
-	</div>
+            <div class="card_acc">Your bank account: {{ profile.bank_account }}</div>
+            <br>
+            <br>
+            
+            <div id="card-type-back" class="logo1"><img src="{% static 'img/Mastercard.png' %}"></div>
+            
+        </div>
+    </div>
 
 </div>
+<div class="bcont">
+    <button class="btn-52" onclick="changeCardType('Arca')">
+        <div class="original">Arca</div>
+        <div class="letters">
+            <span>A</span>
+            <span>r</span>
+            <span>C</span>
+            <span>A</span>
+        </div>
+    </button>
+            
+    <button class="btn-52" onclick="changeCardType('Mastercard')">
+        <div class="original">Mastercard</div>
+        <div class="letters">
+            <span>M</span>
+            <span>a</span>
+            <span>s</span>
+            <span>t</span>
+            <span>r</span>
+            <span>c</span>
+            <span>a</span>
+            <span>r</span>
+            <span>t</span>
+        </div>
+    </button>
+            
+    <button class="btn-52" onclick="changeCardType('Visa')">
+        <div class="original">Visa</div>
+        <div class="letters">
+            <span>V</span>
+            <span>i</span>
+            <span>s</span>
+            <span>a</span>
+        </div>
+    </button>
+    <button class="btn-52" onclick="changeCardType('Maestro')">
+        <div class="original">Maestro</div>
+        <div class="letters">
+            <span>M</span>
+            <span>a</span>
+            <span>e</span>
+            <span>s</span>
+            <span>t</span>
+            <span>r</span>
+            <span>o</span>
+        </div>
+    </button>
+</div>
+
+<script>
+    function changeCardType(cardType) {
+        var cardNumber = document.getElementById('card-number');
+        var cardTypeFront = document.getElementById('card-type');
+        var cardTypeBack = document.getElementById('card-type-back');
+
+        
+        switch (cardType) {
+            case 'Arca':
+                cardNumber.textContent = "90513402********"; 
+                cardTypeFront.innerHTML = '<img src="{% static 'img/Arca.png' %}">';
+                cardTypeBack.innerHTML = '<img src="{% static 'img/Arca.png' %}">';
+                break;
+            case 'Mastercard':
+                cardNumber.textContent = "58218003********"; 
+                cardTypeFront.innerHTML = '<img src="{% static 'img/Mastercard.png' %}">';
+                cardTypeBack.innerHTML = '<img src="{% static 'img/Mastercard.png' %}">';
+                break;
+            case 'Visa':
+                cardNumber.textContent = "50124500********";
+                cardTypeFront.innerHTML = '<img src="{% static 'img/Visa.jpg' %}">';
+                cardTypeBack.innerHTML = '<img src="{% static 'img/Visa.jpg' %}">';
+                break;
+            case "Maestro":
+                cardNumber.textContent = "67002477********"; 
+                cardTypeFront.innerHTML = '<img src="{% static 'img/Maestro_logo.png' %}">';
+                cardTypeBack.innerHTML = '<img src="{% static 'img/Maestro_logo.png' %}">';
+            default:
+                break;
+        }
+    }
+</script>

@@ -27,7 +27,6 @@ class UserRegistrationView(FormView):
 
 
 def login_view(request):
-
     if(request.method == 'POST'):
         email = request.POST['email']
         password = request.POST['password']
@@ -64,6 +63,9 @@ def prof_form(request):
 
     print(form.fields)
     return render(request, "profile/profile.html", {'form': form})
+
+
+
 
 
 
