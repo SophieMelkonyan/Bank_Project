@@ -58,7 +58,6 @@ def create_profile(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
 
 
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     card_number = models.CharField(max_length=16, default="")
@@ -73,6 +72,9 @@ class Profile(models.Model):
             self.bank_account = int(''.join(str(random.randint(0, 9)) for _ in range(14)))
         if not self.card_account:
             self.card_account = int(''.join(str(random.randint(0, 9)) for _ in range(12)))
+        if not self.card_number:
+            self.card_number = self.generate_card_number()
+
         super().save(*args, **kwargs)
 
 

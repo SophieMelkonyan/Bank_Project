@@ -1,9 +1,24 @@
 {% include 'main_base.html' %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+
+<div class="error" style="margin-left: 40%; color: dimgrey; font-weight: bold;">
+    {% if form.errors %}
+        <strong>Error!</strong> Please correct the following errors:
+        <ul>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ field|title }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
 <div class="container">
+    <img class ="img" src="{% static 'img/card3.jpg' %}">
     <div class="front side">
-        
         <div class="content">
             <br>
             <br>
@@ -15,20 +30,26 @@
             
             
             <div class="name">Your Name : {{ profile.user.first_name }} {{ profile.user.last_name }}</div>
-            <div id="card-type" class="logo1"><img src="{% static 'img/Mastercard.png' %}"></div>
+            <div id="card-type" class="logo1"><img src="{% static 'img/Visa.jpg' %}"></div>
             
         </div>
         
     </div>
     
     <div class="back side">
+         <img class ="img1" src="{% static 'img/card3.jpg' %}">
         <div class="black"></div>
         
         
         <div class="content">
-            
+
             <br>
-            <br>
+           <form method="post" action="{% url 'user:profile_update' %}">
+                {% csrf_token %}
+            <input type="password" name="pin_code" placeholder="Enter Pin Code">
+            <input type="text" name="balance" placeholder="Enter Card Balance">
+                <button type="submit">Submit</button>
+            </form>
             <br>
             <div class="card_acc">Your card account: {{ profile.card_account }}</div>
             <br>
@@ -36,6 +57,7 @@
             
             <div class="card_acc">Your bank account: {{ profile.bank_account }}</div>
             <br>
+            <div class="card_acc">Your balance: {{ profile.balance }}</div>
             <br>
             
             <div id="card-type-back" class="logo1"><img src="{% static 'img/Mastercard.png' %}"></div>
@@ -94,32 +116,43 @@
 </div>
 
 <script>
-    function changeCardType(cardType) {
+function changeCardType(cardType) {
+        var img = document.getElementsByClassName('img')[0];
+        var img1 = document.getElementsByClassName('img1')[0];
         var cardNumber = document.getElementById('card-number');
         var cardTypeFront = document.getElementById('card-type');
         var cardTypeBack = document.getElementById('card-type-back');
 
-        
         switch (cardType) {
             case 'Arca':
-                cardNumber.textContent = "90513402********"; 
+
+                cardNumber.textContent = "90513402********";
+                img.setAttribute('src', "{% static 'img/card4.jpg' %}");
+                img1.setAttribute('src', "{% static 'img/card4.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Arca.png' %}">';
                 cardTypeBack.innerHTML = '<img src="{% static 'img/Arca.png' %}">';
                 break;
             case 'Mastercard':
-                cardNumber.textContent = "58218003********"; 
+                cardNumber.textContent = "58218003********";
+                img.setAttribute('src', "{% static 'img/card8.jpg' %}");
+                img1.setAttribute('src', "{% static 'img/card8.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Mastercard.png' %}">';
                 cardTypeBack.innerHTML = '<img src="{% static 'img/Mastercard.png' %}">';
                 break;
             case 'Visa':
-                cardNumber.textContent = "50124500********";
+                cardNumber.textContent = "40124500********";
+                img.setAttribute('src', "{% static 'img/card3.jpg' %}");
+                img1.setAttribute('src', "{% static 'img/card3.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Visa.jpg' %}">';
                 cardTypeBack.innerHTML = '<img src="{% static 'img/Visa.jpg' %}">';
                 break;
-            case "Maestro":
-                cardNumber.textContent = "67002477********"; 
+            case 'Maestro':
+                cardNumber.textContent = "67002477********";
+                img.setAttribute('src', "{% static 'img/car5.jpg' %}");
+                img1.setAttribute('src', "{% static 'img/car5.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Maestro_logo.png' %}">';
                 cardTypeBack.innerHTML = '<img src="{% static 'img/Maestro_logo.png' %}">';
+                break;
             default:
                 break;
         }

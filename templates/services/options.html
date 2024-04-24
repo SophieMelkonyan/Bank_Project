@@ -1,0 +1,29 @@
+{% include "main_base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/options.css' %}">
+
+<form id="serviceForm" method="post" action="{% url 'service:options' %}">
+    {% csrf_token %}
+    
+    <div class="d-2" onclick="submitForm('A')">Taxes</div>
+    <div class="d-2" onclick="submitForm('B')">Take Credit</div>
+    <div class="d-2" onclick="submitForm('C')">Client activation</div>
+    <div class="d-2" onclick="submitForm('D')">Other Services</div>
+    <input type="hidden" id="serviceType" name="serviceType">
+</form>
+<span id="selectedType"></span>
+
+
+
+<script>
+    function submitForm(newType) {
+       
+        document.getElementById('selectedType').innerText = newType;
+        
+        
+        document.getElementById('serviceType').value = newType;
+        
+       
+        document.getElementById('serviceForm').submit();
+    }
+</script>
