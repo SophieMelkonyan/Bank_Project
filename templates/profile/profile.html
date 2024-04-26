@@ -1,4 +1,4 @@
-{% include 'main_base.html' %}
+գիտ ադդ{% include 'main_base.html' %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
@@ -44,7 +44,7 @@
         <div class="content">
 
             <br>
-           <form method="post" action="{% url 'user:profile_update' %}">
+           <form method="post">
                 {% csrf_token %}
             <input type="password" name="pin_code" placeholder="Enter Pin Code">
             <input type="text" name="balance" placeholder="Enter Card Balance">

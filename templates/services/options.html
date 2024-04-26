@@ -1,29 +1,83 @@
 {% include "main_base.html" %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/options.css' %}">
+{% if message %}
+<style>
+.alert {
+  padding: 20px;
+  background-color: #9e9ada;
+  color: white;
+}
 
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+</head>
+<body>
+
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+   {{ message }}
+</div>
+
+{% endif %}
 <form id="serviceForm" method="post" action="{% url 'service:options' %}">
     {% csrf_token %}
     
-    <div class="d-2" onclick="submitForm('A')">Taxes</div>
-    <div class="d-2" onclick="submitForm('B')">Take Credit</div>
-    <div class="d-2" onclick="submitForm('C')">Client activation</div>
-    <div class="d-2" onclick="submitForm('D')">Other Services</div>
+    <div class="d-2" onclick="submitForm('A',[1,2])">Taxes</div>
+    <div class="d-2" onclick="submitForm('B',[3,4])">Take Credit</div>
+    <div class="d-2" onclick="submitForm('C',[5,6])">Client activation</div>
+    <div class="d-2" onclick="submitForm('D',[7,8])">Other Services</div>
     <input type="hidden" id="serviceType" name="serviceType">
+    <input type="hidden" id="serviceNum" name="serviceNum">
 </form>
 <span id="selectedType"></span>
-
-
+<span id="selectedNum"></span>
 
 <script>
-    function submitForm(newType) {
-       
-        document.getElementById('selectedType').innerText = newType;
-        
-        
-        document.getElementById('serviceType').value = newType;
-        
-       
-        document.getElementById('serviceForm').submit();
+var clickCounts = {
+    'A': 0,
+    'B': 0,
+    'C': 0,
+    'D': 0
+};
+
+
+function submitForm(newType, number) {
+    clickCounts[newType]  +=1
+    document.getElementById('serviceForm').disabled = true;
+
+    if (clickCounts[newType]  ===1) {
+        document.getElementById('serviceNum').value = number[0];
+    } else if (clickCounts[newType]  ===2) {
+        document.getElementById('serviceNum').value = number[1];
     }
+    
+    document.getElementById('selectedType').innerText = newType;
+    document.getElementById('selectedNum').innerText = number;
+    document.getElementById('serviceType').value = newType;
+
+    
+    document.getElementById('serviceForm').submit();
+
+    if (clickCounts[newType]  ===3) {
+        
+        setTimeout(function() {
+            document.getElementById('serviceForm').disabled = false;
+        }, 5000);
+    }
+}
 </script>

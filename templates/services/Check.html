@@ -9,16 +9,24 @@
     <div class="container">
         <div class="heading">
             {% if latest_service %}
+                
             <h1>{{ latest_service.type }} {{ latest_service.number }}</h1>
             <label for="name">Your check details</label>
             <br>
             <label for="card">Its created in</label>
+               
             {{ latest_service.created_at }}
             <br>
-            <br>
+            <label for="card">Its window is</label>
+                {{ latest_service.windows }}
             {% else %}
             <p>No service created yet.</p>
             {% endif %}
         </div>
+    </div>
+    <div class="container1">
+        {% for service in services %}
+            <h1> {{ service.type }}{{ service.number }} -->{{ service.windows }}</h1>
+        {% endfor %}
     </div>
 </div>
