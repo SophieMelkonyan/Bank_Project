@@ -25,13 +25,19 @@ class CustomUserManager(BaseUserManager):
 
     def create_user(self, email, password, first_name, last_name, **extra_fields):
         extra_fields.setdefault('is_superuser', False)
-        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_active', True)
         return self._create_user(email, password, first_name, last_name, **extra_fields)
 
-    def create_superuser(self, email, password, first_name, last_name, **extra_fields):
-        extra_fields.setdefault('is_superuser', True)
-        return self._create_user(email, password, first_name, last_name, **extra_fields)
+
+    def create_superuser(self, email, password=None, **extra_fields):
+        user = self.create_user(email, password, **extra_fields)
+        user.is_staff = True
+        user.is_superuser = True
+        user.is_active = True
+        user.save(using=self._db)
+
+        return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -40,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=40)
     created_at = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     objects = CustomUserManager()
 
@@ -58,14 +64,13 @@ def create_profile(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
 
 
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     card_number = models.CharField(max_length=16, default="")
     bank_account = models.IntegerField(default=0)
     card_account = models.IntegerField(default=0)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    pin_code = models.IntegerField(default=0)
+    pin_code = models.IntegerField()
     bank = models.CharField(max_length=40, default="")
 
     def save(self, *args, **kwargs):
@@ -73,6 +78,11 @@ class Profile(models.Model):
             self.bank_account = int(''.join(str(random.randint(0, 9)) for _ in range(14)))
         if not self.card_account:
             self.card_account = int(''.join(str(random.randint(0, 9)) for _ in range(12)))
+        if not self.pin_code:
+            self.pin_code = int(''.join(str(random.randint(0, 9)) for _ in range(4)))
+        if not self.card_number:
+            self.card_number = self.generate_card_number()
+
         super().save(*args, **kwargs)
 
 

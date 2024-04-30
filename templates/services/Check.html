@@ -1,0 +1,52 @@
+{% include "main_base.html" %}
+{% load static %} 
+<link rel="stylesheet" href="{% static 'css/check.css' %}">
+
+
+    <div class="container">
+
+	
+
+	<div class="ticket airline">
+		<div class="top">
+            
+			
+			<div class="big">
+				<p class="from"></p>
+                {% if latest_service %}
+				<p class="to"><i class="fas fa-arrow-right"></i>{{ latest_service.type }} {{ latest_service.number }}</p>
+                
+			</div>
+            
+            
+			<div class="top--side">
+				
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="column">
+				<div class="row row-1">
+					<p><span>Bank name</span> International bank</p>
+					
+				</div>
+				<div class="row row-2">
+					<p><span>Your Window</span> {{ latest_service.windows }}</p>
+                
+					
+				</div>
+                    <div class="row row-2">
+                    <p class="row--right"><span>Created at</span>  {{ latest_service.created_at }}</p>
+                {% else %}
+                <p class="to"><i class="fas fa-arrow-right"></i> No service created yet</p>
+                {% endif %}
+				
+			</div>
+            <br>
+            <br>
+			<div class="bar--code"></div>
+		</div>
+	</div>
+
+	
+    
+</div>

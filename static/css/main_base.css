@@ -153,3 +153,8 @@ body
 {
   transform: none;
 }
+.error{
+	margin-left: 20%;
+	color: black;
+	font-weight: bold;
+}
