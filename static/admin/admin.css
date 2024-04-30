@@ -1,0 +1,119 @@
+header{
+    background:#113b13;
+    color:#fcfcfc;
+}
+
+#branding h1{
+    color:#ffffff;
+    font-size:2rem;
+    font-weight:500;
+}
+
+.module h2, .module caption, .inline-group h2{
+
+    background:#307dad;
+}
+a:link, a:visited{
+
+    color:#09360aa;
+
+}
+
+
+.theme-toggle svg.theme-icon-when-auto, .theme-toggle svg.theme-icon-when-dark, .theme-toggle svg.theme-icon-when-light{
+    color:#131e71;
+
+}
+
+h1{
+    font-weight:500;
+    color:#302b3e;
+}
+
+#content-related .module h2{
+    color:#1a2e8c;
+}
+
+div.breadcrumbs{
+    background:#304982;
+
+}
+
+#changelist-filter li.selected a{
+    color:#255c26;
+}
+
+.object-tools a:link, .object-tools a:visited{
+    background:#397834;
+
+}
+
+#toolbar form input[type="submit"]{
+    background:#80c17f;
+    border:1px solid #2c6a27;
+    color:#fcf7f7;
+}
+
+.button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover{
+    background:#457bb4;
+}
+
+body{
+
+    color:#06105b;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default{
+
+    background:#000000;
+}
+
+html[data-theme="light"], :root{
+
+    --primary:#699f6e;
+    --button-bg:#4ab053;
+}
+
+.submit-row a.deletelink{
+
+    background:#2a2323;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+:root {
+    --accent: #151313;
+    --selected-row: #cee9d2;
+    --darkened-bg: #fff;
+    --primary: #3d443d;
+    --secondary: #035394;
+}
+
+.submit-row a.deletelink{
+background:#1f2420;
+}
+
+
+.module h2, .module caption, .inline-group h2{
+
+background:#307dad;
+}
+
+.object-tools a:link, .object-tools a:visited{
+
+background:#230c62;
+}
+
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button{
+
+background:#1c1670;
+}
+
+th{
+background:#11111
+}

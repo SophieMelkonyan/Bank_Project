@@ -29,9 +29,15 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_active', True)
         return self._create_user(email, password, first_name, last_name, **extra_fields)
 
-    def create_superuser(self, email, password, first_name, last_name, **extra_fields):
-        extra_fields.setdefault('is_superuser', True)
-        return self._create_user(email, password, first_name, last_name, **extra_fields)
+
+    def create_superuser(self, email, password=None, **extra_fields):
+        user = self.create_user(email, password, **extra_fields)
+        user.is_staff = True
+        user.is_superuser = True
+        user.is_active = True
+        user.save(using=self._db)
+
+        return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):
