@@ -1,4 +1,4 @@
-գիտ ադդ{% include 'main_base.html' %}
+{% include 'main_base.html' %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
@@ -21,10 +21,12 @@
     <div class="front side">
         <div class="content">
             <br>
-            <br>
-            
+            <div class="chip">
+                <img src="{% static 'img/chip.png' %}">
+            <img class= "wifi" src="{% static 'img/signal.png' %}"></div>
+           
             <h1 id="card-number">{{ profile.card_number }}</h1>
-            <br>
+            
             
             <div class="date">Created at /{{ profile.user.created_at }}</div>
             
@@ -42,25 +44,30 @@
         
         
         <div class="content">
+            <br>
+            <br>
 
             <br>
            <form method="post">
                 {% csrf_token %}
-            <input type="password" name="pin_code" placeholder="Enter Pin Code">
-            <input type="text" name="balance" placeholder="Enter Card Balance">
+            {{ form.label }}{{ form.pin_code }}
+               {{ form.balance }}
                 <button type="submit">Submit</button>
             </form>
             <br>
             <div class="card_acc">Your card account: {{ profile.card_account }}</div>
             <br>
-            <br>
+            
             
             <div class="card_acc">Your bank account: {{ profile.bank_account }}</div>
             <br>
+            <div class="card_acc">Your pin_code: {{ profile.pin_code }}</div>
+            <br>
+            
             <div class="card_acc">Your balance: {{ profile.balance }}</div>
             <br>
             
-            <div id="card-type-back" class="logo1"><img src="{% static 'img/Mastercard.png' %}"></div>
+            <div id="card-type-back" class="logo1"><img src="{% static 'img/Visa.jpg' %}"></div>
             
         </div>
     </div>
@@ -126,28 +133,28 @@ function changeCardType(cardType) {
         switch (cardType) {
             case 'Arca':
 
-                cardNumber.textContent = "90513402********";
+                cardNumber.textContent = "9051 3402 **** ****";
                 img.setAttribute('src', "{% static 'img/card4.jpg' %}");
                 img1.setAttribute('src', "{% static 'img/card4.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Arca.png' %}">';
                 cardTypeBack.innerHTML = '<img src="{% static 'img/Arca.png' %}">';
                 break;
             case 'Mastercard':
-                cardNumber.textContent = "58218003********";
+                cardNumber.textContent = "5821 8003 **** ****";
                 img.setAttribute('src', "{% static 'img/card8.jpg' %}");
                 img1.setAttribute('src', "{% static 'img/card8.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Mastercard.png' %}">';
                 cardTypeBack.innerHTML = '<img src="{% static 'img/Mastercard.png' %}">';
                 break;
             case 'Visa':
-                cardNumber.textContent = "40124500********";
+                cardNumber.textContent = "4012 4500 **** ****";
                 img.setAttribute('src', "{% static 'img/card3.jpg' %}");
                 img1.setAttribute('src', "{% static 'img/card3.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Visa.jpg' %}">';
                 cardTypeBack.innerHTML = '<img src="{% static 'img/Visa.jpg' %}">';
                 break;
             case 'Maestro':
-                cardNumber.textContent = "67002477********";
+                cardNumber.textContent = "6700 2477 **** ****";
                 img.setAttribute('src', "{% static 'img/car5.jpg' %}");
                 img1.setAttribute('src', "{% static 'img/car5.jpg' %}");
                 cardTypeFront.innerHTML = '<img src="{% static 'img/Maestro_logo.png' %}">';

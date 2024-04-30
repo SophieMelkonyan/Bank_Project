@@ -29,8 +29,8 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['pin_code', 'balance']
-        labels = {'pin_code': 'Pin Code', 'balance': 'Balance'}
+        fields = ['balance']
+        labels = {'balance': 'Balance'}
 
 
 

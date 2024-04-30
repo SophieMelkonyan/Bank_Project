@@ -19,13 +19,23 @@
 
 	background-color: #111;
 	min-width: 700px;
-	min-height: 350px;
+	min-height: 370px;
 	border-radius: 20px;
 	-webkit-transition: 1.5s ease-in-out;
 	transition: 1.5s ease-in-out;
 	transform-style: preserve-3d;
 	margin-left: 30%;
 	margin-top: 7%;
+}
+.chip {
+	margin-bottom: 20%;
+}
+.chip .wifi{
+	margin-left:90px;
+}
+.chip img{
+	width: 96px;
+	height: 86px;
 }
 /*.front{*/
 /*	z-index: 2;*/
@@ -44,6 +54,7 @@
 	border-radius: 20px;
 }
 .content {
+	max-height: 0px;
 	transform: translatez(70px) scale(0.8);
 	line-height: 1.5em;
 }
@@ -51,14 +62,14 @@
 	margin-left: 40px;
 	position: relative;
 	    font-size: 50px;
-    letter-spacing: 15px;
+    letter-spacing: 12px;
 }
 .content p {
 	margin-top: 50px;
 	line-height: 2em;
 }
 .name{
-	margin-top:10%;
+	margin-top:8%;
 	font-size: 25px;
 	width: 400px;
 }

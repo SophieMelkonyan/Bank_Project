@@ -17,7 +17,7 @@
 <br>
 <br>
   {% if form.errors %}
-        
+
             <strong>Error!</strong> Please correct the following errors:
             <ul>
                 {% for field, errors in form.errors.items %}
@@ -26,7 +26,7 @@
                     {% endfor %}
                 {% endfor %}
             </ul>
-        
+
     {% endif %}
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
@@ -61,7 +61,7 @@
 			<input type ="email" name ="email" placeholder="Email">
             <label>Password</label>
             <input type ="password" name ="password" placeholder="Password">
-			
+
 			<a href="{% url "reset_password" %}">Forgot your password?</a>
 			<button type="submit">Sign In</button>
 		</form>

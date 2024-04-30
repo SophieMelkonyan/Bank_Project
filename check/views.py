@@ -12,6 +12,7 @@ class ServiceView(TemplateView):
         context = super().get_context_data(**kwargs)
         latest_service = Service.objects.order_by('-created_at').first()
         services = Service.objects.all().order_by('-created_at')
+
         context['latest_service'] = latest_service
         context['services'] = services
         return context
@@ -21,7 +22,7 @@ def options_view(request):
     if request.method == 'POST':
         service_type = request.POST.get('serviceType')
         service_num = request.POST.get('serviceNum')
-        print(service_num)
+
         if service_type and service_num:
             latest_service = Service.objects.filter(type=service_type).first()
             if latest_service:

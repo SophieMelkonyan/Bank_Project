@@ -1,32 +1,52 @@
 {% include "main_base.html" %}
 {% load static %} 
 <link rel="stylesheet" href="{% static 'css/check.css' %}">
-<br>
-<br>
-<br>
 
-<div class="main">
+
     <div class="container">
-        <div class="heading">
-            {% if latest_service %}
+
+	
+
+	<div class="ticket airline">
+		<div class="top">
+            
+			
+			<div class="big">
+				<p class="from"></p>
+                {% if latest_service %}
+				<p class="to"><i class="fas fa-arrow-right"></i>{{ latest_service.type }} {{ latest_service.number }}</p>
                 
-            <h1>{{ latest_service.type }} {{ latest_service.number }}</h1>
-            <label for="name">Your check details</label>
+			</div>
+            
+            
+			<div class="top--side">
+				
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="column">
+				<div class="row row-1">
+					<p><span>Bank name</span> International bank</p>
+					
+				</div>
+				<div class="row row-2">
+					<p><span>Your Window</span> {{ latest_service.windows }}</p>
+                
+					
+				</div>
+                    <div class="row row-2">
+                    <p class="row--right"><span>Created at</span>  {{ latest_service.created_at }}</p>
+                {% else %}
+                <p class="to"><i class="fas fa-arrow-right"></i> No service created yet</p>
+                {% endif %}
+				
+			</div>
             <br>
-            <label for="card">Its created in</label>
-               
-            {{ latest_service.created_at }}
             <br>
-            <label for="card">Its window is</label>
-                {{ latest_service.windows }}
-            {% else %}
-            <p>No service created yet.</p>
-            {% endif %}
-        </div>
-    </div>
-    <div class="container1">
-        {% for service in services %}
-            <h1> {{ service.type }}{{ service.number }} -->{{ service.windows }}</h1>
-        {% endfor %}
-    </div>
+			<div class="bar--code"></div>
+		</div>
+	</div>
+
+	
+    
 </div>

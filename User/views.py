@@ -95,13 +95,13 @@ def login_view(request):
 
     return HttpResponse(render(request, "user/login.html"))
 
-
-class CreateProfile(DetailView):
+class CreateProfile(FormView, DetailView):
     model = Profile
 
     template_name = 'profile/profile.html'
-
     context_object_name = "profile"
+    form_class = ProfileForm
+    success_url = None
 
     def get_object(self, queryset=None):
         pk = self.request.user.pk
@@ -110,14 +110,20 @@ class CreateProfile(DetailView):
         profile = user.profile
         return profile
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ProfileForm(instance=self.get_object())
+        return context
 
-def prof_form(request):
-    form = ProfileForm()
+    def form_valid(self, form):
+        profile = self.get_object()
+        profile.balance = form.cleaned_data["balance"]
 
-    print(form.fields)
-    return render(request, "profile/profile.html", {'form': form})
+        profile.save()
+        return super().form_valid(form)
 
-
+    def get_success_url(self):
+        return reverse_lazy('user:profile', kwargs={'pk': self.request.user.pk})
 
 
 
