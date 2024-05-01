@@ -1,9 +1,10 @@
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib.auth import views as auth_views
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path("", include("User.url", namespace="User")),
     path("change-password/", auth_views.PasswordChangeView.as_view()),
@@ -16,4 +17,4 @@ urlpatterns = [
          name="password_reset_complete"),
     path("home/", include("home.url", namespace="home")),
     path("services/", include("check.url", namespace="service")),
-]
+)
