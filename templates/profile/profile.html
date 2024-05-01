@@ -1,5 +1,8 @@
 {% include 'main_base.html' %}
 {% load static %}
+{% load i18n%}
+
+
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
 
@@ -15,6 +18,11 @@
         </ul>
     {% endif %}
 </div>
+<p class="language">
+  <a href="#" onclick="changeLanguage('en')" role="button">{% trans "English" %}</a>
+  <a href="#" onclick="changeLanguage('ru')" role="button">{% trans "Russian" %}</a>
+  <a href="#" onclick="changeLanguage('hy')" role="button">{% trans "Armenian" %}</a>
+</p>
 
 <div class="container">
     <img class ="img" src="{% static 'img/card3.jpg' %}">
@@ -28,10 +36,10 @@
             <h1 id="card-number">{{ profile.card_number }}</h1>
             
             
-            <div class="date">Created at /{{ profile.user.created_at }}</div>
+            <div class="date">{% trans "Created at" %} /{{ profile.user.created_at }}</div>
             
             
-            <div class="name">Your Name : {{ profile.user.first_name }} {{ profile.user.last_name }}</div>
+            <div class="name">{% trans "Your Name" %} : {{ profile.user.first_name }} {{ profile.user.last_name }}</div>
             <div id="card-type" class="logo1"><img src="{% static 'img/Visa.jpg' %}"></div>
             
         </div>
@@ -52,19 +60,19 @@
                 {% csrf_token %}
             {{ form.label }}{{ form.pin_code }}
                {{ form.balance }}
-                <button type="submit">Submit</button>
+                <button type="submit">{% trans "Submit" %}</button>
             </form>
             <br>
-            <div class="card_acc">Your card account: {{ profile.card_account }}</div>
+            <div class="card_acc">{% trans "Your card account:" %}{{ profile.card_account }}</div>
             <br>
             
             
-            <div class="card_acc">Your bank account: {{ profile.bank_account }}</div>
+            <div class="card_acc">{% trans "Your bank account:" %} {{ profile.bank_account }}</div>
             <br>
-            <div class="card_acc">Your pin_code: {{ profile.pin_code }}</div>
+            <div class="card_acc">{% trans "Your pin_code:" %} {{ profile.pin_code }}</div>
             <br>
             
-            <div class="card_acc">Your balance: {{ profile.balance }}</div>
+            <div class="card_acc">{% trans "Your balance:" %} {{ profile.balance }}</div>
             <br>
             
             <div id="card-type-back" class="logo1"><img src="{% static 'img/Visa.jpg' %}"></div>

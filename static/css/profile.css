@@ -1,4 +1,17 @@
+.language {
+	margin-left: 45%;
+}
 
+.language a {
+	color: #585858;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.language a:hover {
+	font-weight: bold;
+	color: #2010ed;
+}
 .container {
 	height: 150px;
 	width: 150px;
