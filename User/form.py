@@ -33,4 +33,18 @@ class ProfileForm(forms.ModelForm):
         labels = {'balance': 'Balance'}
 
 
+class Bankomat(forms.ModelForm):
+
+    money = forms.DecimalField(max_digits=10, decimal_places=2)
+
+    class Meta:
+        model = Profile
+        fields = ['money',"pin_code"]
+        labels = {'money': 'Money','pin_code': 'Pincode'}
+
+        def save(self, commit=True):
+            profile = Profile.objects.get(pin_code=self.cleaned_data['pin_code'])
+            profile.balance -= self.cleaned_data['money']
+            profile.save()
+            return profile
 

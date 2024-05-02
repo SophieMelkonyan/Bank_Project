@@ -1,0 +1,25 @@
+{%  include "main_base.html" %}
+{% load static %}
+<link href="{% static 'css/bankomate.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="pin-login" id="mainPinLogin">
+    <input type="password" readonly class="pin-login__text" placeholder="Enter your Pin">
+    <div class="pin-login__numpad">
+    </div>
+    <div class="result">
+        
+        <h2 style="font-family: 'Lucida Console', 'Courier New', monospace;">Enter the money you want to get</h2>
+        
+               <form  method ="POST" action="#">
+            {% csrf_token %}
+                   {{ form.money }}
+                   
+                   <button type="submit">Submit</button>
+               </form>
+        
+        
+        
+    </div>
+    {{ profile.balance }}
+</div>
+<script type="text/javascript" src="{% static 'js/bankomate.js' %}"></script>

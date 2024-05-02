@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'check.apps.CheckConfig',
     'rosetta',
     'admin_honeypot'
+
 ]
 
 MIDDLEWARE = [

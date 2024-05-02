@@ -39,20 +39,20 @@ function changeLanguage(language) {
     <span></span>
     <span></span>
     <ul id="menu">
-        <br>
         
       <a href="{% url 'user:profile'  pk=user.pk %}"><img src="{% static 'img/user.png' %}"><li>{% trans "Profile" %}</li></a>
         <br>
-        <br>
+        
       <a href="{% url 'service:service'  %}"><img src="{% static 'img/edit.png' %}"><li>{% trans "Check" %}</li></a>
         <br>
-        <br>
+        
       <a href="{% url 'service:options'  %}"><img src="{% static 'img/ballot.png' %}"><li>{% trans "Services" %}</li></a>
         <br>
-        <br>
+        
       <a href="{% url 'User:register' %}"><img src="{% static 'img/sign-in-alt.png' %}"><li>{% trans "Login" %}</li></a>
         <br>
-        <br>
+        
+        <a href="{% url 'User:bankomate' %}"><img src="{% static 'img/bankomate.png' %}"><li>{% trans "Bank" %}</li></a>
       
     </ul>
   </div>

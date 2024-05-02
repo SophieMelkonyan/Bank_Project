@@ -8,7 +8,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import FormView
 from django.contrib import messages
-from .form import ProfileForm, EmailForm, CustomUserCreationForm
+from .form import ProfileForm, EmailForm, CustomUserCreationForm,Bankomat
 from django.contrib.auth import authenticate, login
 from .tasks import send_simple_email
 from django.template.loader import render_to_string
@@ -125,6 +125,26 @@ class CreateProfile(FormView, DetailView):
     def get_success_url(self):
         return reverse_lazy('user:profile', kwargs={'pk': self.request.user.pk})
 
+
+class BankomatView(FormView):
+    template_name = 'bankomat/bankomat.html'
+    form_class = Bankomat
+    success_url = '/success/'
+    model=Profile
+
+    def form_valid(self, form):
+        pin_code = form.cleaned_data['pin_code']
+        money = form.cleaned_data['money']
+
+        # Fetch the profile based on pin code
+        profile = Profile.objects.get(pin_code=pin_code)
+        profile.balance -= money
+        profile.save()
+
+        # Update the profile object with the latest data from the database
+        profile.refresh_from_db()
+
+        return render(self.request, 'bankomat/bankomat.html', {'form': form, 'profile': profile})
 
 
 
