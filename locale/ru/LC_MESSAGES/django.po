@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-01 23:37+0400\n"
+"POT-Creation-Date: 2024-05-05 23:35+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,25 +20,27 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\Bank_Project\settings.py:130
+#: .\Bank_Project\settings.py:133
 msgid "Englsih"
 msgstr "Английский"
 
-#: .\Bank_Project\settings.py:131 .\templates\main_base.html:8
-#: .\templates\user\Login.html:9
+#: .\Bank_Project\settings.py:134
 msgid "Russian"
 msgstr "Русский"
 
-#: .\Bank_Project\settings.py:132 .\templates\main_base.html:9
-#: .\templates\user\Login.html:11
+#: .\Bank_Project\settings.py:135
 msgid "Armenian"
 msgstr "Армянский"
 
-#: .\templates\main_base.html:7 .\templates\user\Login.html:10
-msgid "English"
-msgstr "Английский"
+#: .\templates\bankomat\bankomat.html:86
+msgid "Enter the money you want to get"
+msgstr "Введите сумму, которую хотите получить"
 
-#: .\templates\main_base.html:34
+#: .\templates\bankomat\bankomat.html:91 .\templates\profile\profile.html:59
+msgid "Submit"
+msgstr "подтвердит"
+
+#: .\templates\main_base.html:29
 msgid "International Bank"
 msgstr "Международный Банк"
 
@@ -50,7 +52,7 @@ msgstr "Профиль"
 msgid "Check"
 msgstr "Чек"
 
-#: .\templates\main_base.html:55
+#: .\templates\main_base.html:55 .\templates\services\options.html:44
 msgid "Services"
 msgstr "Услуги"
 
@@ -58,40 +60,102 @@ msgstr "Услуги"
 msgid "Login"
 msgstr "Вход"
 
-#: .\templates\profile\profile.html:34 .\templates\services\Check.html:33
+#: .\templates\main_base.html:61
+#, fuzzy
+#| msgid "Bank name"
+msgid "Bank"
+msgstr "название банка"
+
+#: .\templates\profile\profile.html:35 .\templates\services\Check.html:33
 msgid "Created at"
 msgstr "Создан в"
 
-#: .\templates\profile\profile.html:37 .\templates\user\Login.html:51
+#: .\templates\profile\profile.html:38 .\templates\user\Login.html:46
 msgid "Your Name"
 msgstr "Ваше имя"
 
-#: .\templates\profile\profile.html:58
-msgid "Submit"
-msgstr "отправлять"
-
-#: .\templates\profile\profile.html:61
+#: .\templates\profile\profile.html:62
 msgid "Your card account:"
 msgstr "Карточный баланс:"
 
-#: .\templates\profile\profile.html:65
+#: .\templates\profile\profile.html:66
 msgid "Your bank account:"
 msgstr "банковскийc баланс:"
 
-#: .\templates\profile\profile.html:67
+#: .\templates\profile\profile.html:68
 msgid "Your pin_code:"
 msgstr "Ваш пин_код:"
 
-#: .\templates\profile\profile.html:70
+#: .\templates\profile\profile.html:71
 msgid "Your balance:"
 msgstr "Ваш баланс:"
+
+#: .\templates\registration\password_reset_complete.html:3
+msgid "Congratulations Your Password changed successfully"
+msgstr "Поздравляем! Ваш пароль успешно изменен."
+
+#: .\templates\registration\password_reset_confirm.html:13
+msgid "Forgot Password?"
+msgstr "Забыли пароль?"
+
+#: .\templates\registration\password_reset_confirm.html:19
+msgid "Enter your new password twice."
+msgstr "Введите новый пароль дважды.."
+
+#: .\templates\registration\password_reset_confirm.html:23
+msgid "New password"
+msgstr "Новый пароль"
+
+#: .\templates\registration\password_reset_confirm.html:26
+msgid "password1"
+msgstr "Пароль1"
+
+#: .\templates\registration\password_reset_confirm.html:29
+msgid "Confirm password"
+msgstr "Подтвердите пароль"
+
+#: .\templates\registration\password_reset_confirm.html:32
+
+msgid "password2"
+msgstr "Пароль2"
+
+#: .\templates\registration\password_reset_confirm.html:35
+msgid "Reset"
+msgstr "изменить"
+
+#: .\templates\registration\password_reset_done.html:2
+msgid "We sent to you an email,"
+msgstr "Мы отправили вам письмо,"
+
+#: .\templates\registration\password_reset_done.html:3
+msgid "please check it"
+msgstr "пожалуйста проверьте"
+
+#: .\templates\registration\password_reset_form.html:14
+#: .\templates\user\Login.html:68
+msgid "Forgot your Password?"
+msgstr "Забыли пароль?"
+
+#: .\templates\registration\password_reset_form.html:15
+msgid "You can reset your password here."
+msgstr "Вы можете изменить свой пароль здесь."
+
+#: .\templates\registration\password_reset_form.html:24
+msgid "email address"
+msgstr "почта"
+
+#: .\templates\registration\password_reset_form.html:31
+msgid "Send Email"
+msgstr "Отправить"
 
 #: .\templates\registration\password_reset_subject.txt:2
 #, python-format
 msgid "Password reset on %(site_name)s"
 msgstr ""
 
-
+#: .\templates\services\Check.html:24
+msgid "Bank name"
+msgstr "название банка"
 
 #: .\templates\services\Check.html:24
 msgid "International bank"
@@ -100,10 +164,6 @@ msgstr "Международный банк"
 #: .\templates\services\Check.html:28
 msgid "Your Window"
 msgstr "Ваше окно"
-
-#: templates/services/Check.html:30
-msgid "Bank name"
-msgstr "название банка"
 
 #: .\templates\services\Check.html:35
 msgid "No service created yet"
@@ -121,63 +181,50 @@ msgstr "Взять кредит"
 msgid "Client activation"
 msgstr "Активация клиента"
 
-#: .\templates\services\options.html:44
-#, fuzzy
-#| msgid "Services"
-msgid " Services"
-msgstr "услуги"
-
-#: templates/user/Login.html:47
-msgid "Last name"
-msgstr "Фамилия"
-
-#: .\templates\user\Login.html:47
+#: .\templates\user\Login.html:42
 msgid "Create Account"
 msgstr "создать аккаунт"
 
-#: .\templates\user\Login.html:49 .\templates\user\Login.html:68
-#: .\templates\user\Login.html:69
+#: .\templates\user\Login.html:44 .\templates\user\Login.html:63
+#: .\templates\user\Login.html:64
 msgid "Email"
 msgstr "Электронная почта"
 
+#: .\templates\user\Login.html:48
+msgid "Last name"
+msgstr "Фамилия"
 
-
-
-#: .\templates\user\Login.html:60 .\templates\user\Login.html:87
+#: .\templates\user\Login.html:55 .\templates\user\Login.html:82
 msgid "Sign Up"
 msgstr "Зарегистрироваться"
 
-#: .\templates\user\Login.html:66
+#: .\templates\user\Login.html:61
 msgid "Sign in"
 msgstr "Войти"
 
-#: .\templates\user\Login.html:70 .\templates\user\Login.html:71
+#: .\templates\user\Login.html:65 .\templates\user\Login.html:66
 msgid "Password"
 msgstr "Пароль"
 
-#: .\templates\user\Login.html:73
-msgid "forgot your password?"
-msgstr "Забыли пароль?"
-
-#: .\templates\user\Login.html:74 .\templates\user\Login.html:82
+#: .\templates\user\Login.html:69 .\templates\user\Login.html:77
 msgid "Sign In"
 msgstr "Войти"
 
-#: .\templates\user\Login.html:80
+#: .\templates\user\Login.html:75
 msgid "Welcome Back!"
 msgstr "Забыли пароль?"
 
-#: .\templates\user\Login.html:81
+#: .\templates\user\Login.html:76
 msgid "To keep connected with us please login with your personal info"
 msgstr ""
 "Чтобы оставаться на связи с нами, пожалуйста, войдите, используя свои личные "
 "данные."
 
-#: .\templates\user\Login.html:85
+#: .\templates\user\Login.html:80
 msgid "Hello, Friend!"
 msgstr "Привет, друг!"
 
-#: .\templates\user\Login.html:86
+#: .\templates\user\Login.html:81
 msgid "Enter your personal details and start online banking with us"
 msgstr "Введите свои личные данные и начните онлайн-банкинг с нами"
 
@@ -1689,3 +1736,11 @@ msgstr ""
 #, python-format
 msgid "Unable to connect to qpid with SASL mechanism %s"
 msgstr ""
+
+#~ msgid "English"
+#~ msgstr "Английский"
+
+#, fuzzy
+#~| msgid "Services"
+#~ msgid " Services"
+#~ msgstr "услуги"

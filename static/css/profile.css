@@ -1,5 +1,5 @@
 .language {
-	margin-left: 45%;
+	margin-left: 40%;
 }
 
 .language a {
@@ -296,7 +296,7 @@ a img{
 
 }
  img{
-	pointer-events: none;
+
   position: absolute;
   width: 100%;
 	 border-radius: 20px;

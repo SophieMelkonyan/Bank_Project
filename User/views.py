@@ -46,8 +46,6 @@ class RegistrationView(CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         user = self.object
-
-
         subject = "Authenticate your Profile"
         user.is_active = False
         user.save()
@@ -112,7 +110,8 @@ class CreateProfile(FormView, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = ProfileForm(instance=self.get_object())
+        profile = self.get_object()
+        context['balance'] = profile.balance
         return context
 
     def form_valid(self, form):
@@ -125,29 +124,23 @@ class CreateProfile(FormView, DetailView):
     def get_success_url(self):
         return reverse_lazy('user:profile', kwargs={'pk': self.request.user.pk})
 
-
 class BankomatView(FormView):
     template_name = 'bankomat/bankomat.html'
     form_class = Bankomat
-    success_url = '/success/'
-    model=Profile
+    success_url = None
 
     def form_valid(self, form):
-        pin_code = form.cleaned_data['pin_code']
         money = form.cleaned_data['money']
+        pin_code = form.cleaned_data['pin_code']
+        profile = Profile.objects.get(user=self.request.user)
+        if(pin_code == profile.pin_code):
+            if(profile.balance < money ):
+                messages.error(self.request, "Your balance is minus")
+            profile.balance -= money
+            profile.save()
+            return redirect(reverse_lazy('user:profile', kwargs={'pk': profile.pk}))
+        else:
+            messages.error(self.request, "Your pin code is incorrect")
 
-        # Fetch the profile based on pin code
-        profile = Profile.objects.get(pin_code=pin_code)
-        profile.balance -= money
-        profile.save()
-
-        # Update the profile object with the latest data from the database
-        profile.refresh_from_db()
-
-        return render(self.request, 'bankomat/bankomat.html', {'form': form, 'profile': profile})
-
-
-
-
-
+            return redirect('user:bankomate')
 

@@ -3,9 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <p> <a href="/ru/" role="button">{%trans "Russian"%}</a>
-   <a href="/en/" role="button">{%trans "English"%}</a>
-     <a href="/hy/" role="button">{%trans "Armenian"%}</a></p>
+    <div class="language">
+        
+    <a href="/ru/" role="button"><img src ="{% static 'img/russia.png' %}"></a>
+   <a href="/en/" role="button"><img src ="{% static 'img/united-kingdom.png' %}"></a>
+     <a href="/hy/" role="button"><img src ="{% static 'img/armenia.png' %}"></a>
+    </div>
     <meta charset="UTF-8">
     <link rel="icon" href="{% static 'img/img1.png' %}"
       type="image/x-icon" sizes="64x64">
@@ -15,9 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
 </head>
 <body>
-{% if messages %}
-{% include "alert/alert.html" %}
-{% endif %}
+
 <br>
 <br>
   {% if form.errors %}
@@ -64,7 +65,7 @@
             <label>{% trans "Password" %}</label>
             <input type ="password" name ="password" placeholder="{% trans "Password" %}">
 
-			<a href="{% url "reset_password" %}">{% trans "forgot your password?" %}</a>
+			<a href="{% url "reset_password" %}">{% trans "Forgot your Password?" %}</a>
 			<button type="submit">{% trans "Sign In" %} </button>
 		</form>
 	</div>

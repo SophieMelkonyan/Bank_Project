@@ -1,25 +1,98 @@
 {%  include "main_base.html" %}
 {% load static %}
+{% load i18n %}
 <link href="{% static 'css/bankomate.css' %}" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <div class="pin-login" id="mainPinLogin">
-    <input type="password" readonly class="pin-login__text" placeholder="Enter your Pin">
-    <div class="pin-login__numpad">
-    </div>
+    <div class="container">
+    <div class="card-header">
+        <form method="post">
+    {% csrf_token %}
+        {{ form.pin_code }}
+            </div>
+            <div>
+                <div class="row">
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="1">
+                            1
+                    </button>
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="2">
+                            2
+                    </button>
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="3">
+                            3
+                    </button>
+                </div>
+                <div class="row">
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="4">
+                            4
+                    </button>
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="5">
+                            5
+                    </button>
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="6">
+                            6
+                    </button>
+                </div>
+                <div class="row">
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="7">
+                            7
+                    </button>
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="8">
+                            8
+                    </button>
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="9">
+                            9
+                    </button>
+                     
+                </div>
+                <div class="row">
+                    <button type="button"
+                            class="pinpad-btn"
+                            value="del
+                            "
+                         id="delete-btn">
+                        Del
+                    </button>
+                    <button type="button"
+                            class="pinpad-btn1"
+                            value="0">
+                            0
+                    </button>
+                    
+                </div>
+            </div>
+        
     <div class="result">
         
-        <h2 style="font-family: 'Lucida Console', 'Courier New', monospace;">Enter the money you want to get</h2>
+        <h2 style="font-family: 'Lucida Console', 'Courier New', monospace;">{% trans "Enter the money you want to get" %}</h2>
         
-               <form  method ="POST" action="#">
-            {% csrf_token %}
-                   {{ form.money }}
+               
+    {{ form.money }}
                    
-                   <button type="submit">Submit</button>
-               </form>
-        
-        
-        
-    </div>
-    {{ profile.balance }}
+    <button type="submit">{% trans "Submit"%}</button>
+
 </div>
+        </form>
+</div>
+
 <script type="text/javascript" src="{% static 'js/bankomate.js' %}"></script>
+</div>

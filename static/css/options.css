@@ -65,7 +65,8 @@ d-1 {
 
 
 /**/
-div[class] {
+.d-2 {
+  text-align: center;
   width: 500px;
   margin:60px 20px 20px 30%;
   font-size:40px;
@@ -74,6 +75,3 @@ div[class] {
   cursor:pointer;
 }
 
-body {
-  text-align:center;
-}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-02 00:46+0400\n"
+"POT-Creation-Date: 2024-05-05 23:35+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,106 +18,133 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\Bank_Project\settings.py:131
+#: .\Bank_Project\settings.py:133
 msgid "Englsih"
 msgstr "Անգլերեն"
 
-#: .\Bank_Project\settings.py:132 .\templates\profile\profile.html:23
-#: .\templates\user\Login.html:6
+#: .\Bank_Project\settings.py:134
 msgid "Russian"
 msgstr "Ռուսերեն"
 
-#: .\Bank_Project\settings.py:133 .\templates\profile\profile.html:24
-#: .\templates\user\Login.html:8
+#: .\Bank_Project\settings.py:135
 msgid "Armenian"
 msgstr "Հայերեն"
+
+#: .\templates\bankomat\bankomat.html:86
+msgid "Enter the money you want to get"
+msgstr "Մուտքագրեք ցանկալի գումարի չափը"
+
+#: .\templates\bankomat\bankomat.html:91 .\templates\profile\profile.html:59
+msgid "Submit"
+msgstr "Հաստատել"
 
 #: .\templates\main_base.html:29
 msgid "International Bank"
 msgstr "Միջազգային բանկ"
 
-#: .\templates\main_base.html:44
+#: .\templates\main_base.html:49
 msgid "Profile"
 msgstr "Պրոֆիլ"
 
-#: .\templates\main_base.html:47
+#: .\templates\main_base.html:52
 msgid "Check"
 msgstr "Ստուգել"
 
-#: .\templates\main_base.html:50 .\templates\services\options.html:44
+#: .\templates\main_base.html:55 .\templates\services\options.html:44
 msgid "Services"
 msgstr "Հավելյալ"
 
-#: .\templates\main_base.html:53
+#: .\templates\main_base.html:58
 msgid "Login"
 msgstr "Մուտք"
 
-#: .\templates\profile\profile.html:22 .\templates\user\Login.html:7
-msgid "English"
-msgstr "Անգլերեն"
+#: .\templates\main_base.html:61
+#, fuzzy
+#| msgid "Bank name"
+msgid "Bank"
+msgstr "Բանկի անունը"
 
-#: .\templates\profile\profile.html:39 .\templates\services\Check.html:33
+#: .\templates\profile\profile.html:35 .\templates\services\Check.html:33
 msgid "Created at"
 msgstr "Ստեղծվել է՝"
 
-#: .\templates\profile\profile.html:42 .\templates\user\Login.html:45
+#: .\templates\profile\profile.html:38 .\templates\user\Login.html:46
 msgid "Your Name"
 msgstr "Ձեր անունը"
 
-#: .\templates\profile\profile.html:63
-msgid "Submit"
-msgstr "Հաստատել"
-
-#: .\templates\profile\profile.html:66
+#: .\templates\profile\profile.html:62
 msgid "Your card account:"
 msgstr "Քարտային հաշիվ "
 
-#: .\templates\profile\profile.html:70
+#: .\templates\profile\profile.html:66
 msgid "Your bank account:"
 msgstr "Բանկային հաշիվ "
 
-#: .\templates\profile\profile.html:72
+#: .\templates\profile\profile.html:68
 msgid "Your pin_code:"
 msgstr "Ձեր փին—կոդը"
 
-#: .\templates\profile\profile.html:75
+#: .\templates\profile\profile.html:71
 msgid "Your balance:"
 msgstr "Ձեր բալանսը"
 
 #: .\templates\registration\password_reset_complete.html:3
 msgid "Congratulations Your Password changed successfully"
-msgstr "Շնորհավոր! Ձեր Գաղտնաբառը փոխված է"
+msgstr "Ձեր Գաղտնաբառը հաջողությամբ փոխվեց "
 
 #: .\templates\registration\password_reset_confirm.html:13
-#, fuzzy
-#| msgid "forgot your password?"
-msgid "Forgot Password"
+msgid "Forgot Password?"
 msgstr "Մոռացե՞լ եք գաղտնաբառը"
 
-#: .\templates\registration\password_reset_confirm.html:14
-#, fuzzy
-#| msgid "forgot your password?"
-msgid "You can reset your password here"
-msgstr "Փոփոխեք ձեր գաղտնաբառը այստեղ"
-
 #: .\templates\registration\password_reset_confirm.html:19
+msgid "Enter your new password twice."
+msgstr "Մուտքագրեք ձեր գաղտնաբառը երկու անգամ"
 
-msgid "Enter your new password twice"
-msgstr "Մուտքագրեք ձեր գաղտնաբառը"
-
-#: .\templates\registration\password_reset_confirm.html:21
-#, fuzzy
-#| msgid "Password"
+#: .\templates\registration\password_reset_confirm.html:23
 msgid "New password"
-msgstr "Գաղտնաբառ"
+msgstr "Նոր գաղտնաբառ"
 
-#: .\templates\registration\password_reset_confirm.html:27
+#: .\templates\registration\password_reset_confirm.html:26
+
+msgid "password1"
+msgstr "Գաղտնաբառ1"
+
+#: .\templates\registration\password_reset_confirm.html:29
 msgid "Confirm password"
 msgstr "Հաստատեք գաղտնաբառը"
 
-#: .\templates\registration\password_reset_confirm.html:33
+#: .\templates\registration\password_reset_confirm.html:32
+msgid "password2"
+msgstr "Գաղտնաբառ2"
+
+#: .\templates\registration\password_reset_confirm.html:35
 msgid "Reset"
 msgstr "Փոփոխել"
+
+#: .\templates\registration\password_reset_done.html:2
+msgid "We sent to you an email,"
+msgstr "Մենք ուղարկել ենք ձեզ նամակ"
+
+#: .\templates\registration\password_reset_done.html:3
+msgid "please check it"
+msgstr "ստուգեք ձեր փոստը"
+
+#: .\templates\registration\password_reset_form.html:14
+#: .\templates\user\Login.html:68
+msgid "Forgot your Password?"
+msgstr "Մոռացե՞լ եք գաղտնաբառը"
+
+#: .\templates\registration\password_reset_form.html:15
+msgid "You can reset your password here."
+msgstr "Փոփոխեք ձեր գաղտնաբառը այստեղ"
+
+#: .\templates\registration\password_reset_form.html:24
+msgid "email address"
+msgstr "հասցե"
+
+#: .\templates\registration\password_reset_form.html:31
+msgid "Send Email"
+msgstr "Ուղարկել "
 
 #: .\templates\registration\password_reset_subject.txt:2
 #, python-format
@@ -152,52 +179,48 @@ msgstr "Վարկեր"
 msgid "Client activation"
 msgstr "Հաճախորդի ակտիվացում"
 
-#: .\templates\user\Login.html:41
+#: .\templates\user\Login.html:42
 msgid "Create Account"
 msgstr "Ստեղծել հաշիվ"
 
-#: .\templates\user\Login.html:43 .\templates\user\Login.html:62
-#: .\templates\user\Login.html:63
+#: .\templates\user\Login.html:44 .\templates\user\Login.html:63
+#: .\templates\user\Login.html:64
 msgid "Email"
 msgstr "Էլեկտրոնային հասցե"
 
-#: .\templates\user\Login.html:47
+#: .\templates\user\Login.html:48
 msgid "Last name"
 msgstr "Ազգանուն"
 
-#: .\templates\user\Login.html:54 .\templates\user\Login.html:81
+#: .\templates\user\Login.html:55 .\templates\user\Login.html:82
 msgid "Sign Up"
 msgstr "Գրանցվել"
 
-#: .\templates\user\Login.html:60
+#: .\templates\user\Login.html:61
 msgid "Sign in"
 msgstr "Մուտք"
 
-#: .\templates\user\Login.html:64 .\templates\user\Login.html:65
+#: .\templates\user\Login.html:65 .\templates\user\Login.html:66
 msgid "Password"
 msgstr "Գաղտնաբառ"
 
-#: .\templates\user\Login.html:67
-msgid "forgot your password?"
-msgstr "Մոռացե՞լ եք գաղտնաբառը"
-
-#: .\templates\user\Login.html:68 .\templates\user\Login.html:76
+#: .\templates\user\Login.html:69 .\templates\user\Login.html:77
 msgid "Sign In"
 msgstr "Մուտք"
 
-#: .\templates\user\Login.html:74
+#: .\templates\user\Login.html:75
 msgid "Welcome Back!"
 msgstr "Բարի գալուստ"
 
-#: .\templates\user\Login.html:75
+#: .\templates\user\Login.html:76
 msgid "To keep connected with us please login with your personal info"
 msgstr "Շարունակելու համար խնդրում ենք մուտք գործեք Ձեր անձնական հաշիվ"
 
-#: .\templates\user\Login.html:79
+#: .\templates\user\Login.html:80
 msgid "Hello, Friend!"
 msgstr "Բարև ընկեր!"
 
-#: .\templates\user\Login.html:80
+#: .\templates\user\Login.html:81
 msgid "Enter your personal details and start online banking with us"
 msgstr ""
 "Մուտք գործեք Ձեր անձնական տվյալները և օգտվեք օնլայն բանկինգի "
@@ -1711,6 +1734,12 @@ msgstr ""
 #, python-format
 msgid "Unable to connect to qpid with SASL mechanism %s"
 msgstr ""
+
+#~ msgid "forgot your password?"
+#~ msgstr "Մոռացե՞լ եք գաղտնաբառը"
+
+#~ msgid "English"
+#~ msgstr "Անգլերեն"
 
 #, fuzzy
 #~| msgid "Your Name"

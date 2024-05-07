@@ -18,11 +18,7 @@
         </ul>
     {% endif %}
 </div>
-<p class="language">
-  <a href="#" onclick="changeLanguage('en')" role="button">{% trans "English" %}</a>
-  <a href="#" onclick="changeLanguage('ru')" role="button">{% trans "Russian" %}</a>
-  <a href="#" onclick="changeLanguage('hy')" role="button">{% trans "Armenian" %}</a>
-</p>
+
 
 <div class="container">
     <img class ="img" src="{% static 'img/card3.jpg' %}">
@@ -72,7 +68,7 @@
             <div class="card_acc">{% trans "Your pin_code:" %} {{ profile.pin_code }}</div>
             <br>
             
-            <div class="card_acc">{% trans "Your balance:" %} {{ profile.balance }}</div>
+            <div class="card_acc">{% trans "Your balance:" %} {{ balance }}</div>
             <br>
             
             <div id="card-type-back" class="logo1"><img src="{% static 'img/Visa.jpg' %}"></div>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'User.apps.UserConfig',
     'check.apps.CheckConfig',
     'rosetta',
+
     'admin_honeypot'
 
 ]

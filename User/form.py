@@ -36,15 +36,15 @@ class ProfileForm(forms.ModelForm):
 class Bankomat(forms.ModelForm):
 
     money = forms.DecimalField(max_digits=10, decimal_places=2)
+    pin_code = forms.IntegerField(widget=forms.PasswordInput(attrs={"id": "pinpad-input"}))
+
 
     class Meta:
         model = Profile
-        fields = ['money',"pin_code"]
-        labels = {'money': 'Money','pin_code': 'Pincode'}
+        fields = ['money','pin_code']
 
-        def save(self, commit=True):
-            profile = Profile.objects.get(pin_code=self.cleaned_data['pin_code'])
-            profile.balance -= self.cleaned_data['money']
-            profile.save()
-            return profile
+
+
+
+
 
