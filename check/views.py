@@ -1,8 +1,25 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views import View
+from django.views.generic import TemplateView, DeleteView
 from django.utils import timezone
 from .models import Service
+from helpers.decoraters import OwnProFileMixin
 
+
+class ServiceListView(OwnProFileMixin,TemplateView):
+    template_name = 'profile/worker.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        services = Service.objects.all().order_by('-created_at')
+        context['services'] = services
+        return context
+
+class ServiceDeleteView(OwnProFileMixin, View):
+    def post(self, request, service_id):
+        service = get_object_or_404(Service, pk=service_id)
+        service.delete()
+        return redirect('service:worker')
 
 class ServiceView(TemplateView):
     template_name = 'services/check.html'
@@ -35,3 +52,4 @@ def options_view(request):
 
         return redirect('service:service')
     return render(request, 'services/options.html')
+

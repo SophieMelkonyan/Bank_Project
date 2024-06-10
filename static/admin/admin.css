@@ -1,5 +1,5 @@
-header{
-    background:#113b13;
+#header{
+    background: #5347f8;
     color:#fcfcfc;
 }
 
@@ -11,7 +11,7 @@ header{
 
 .module h2, .module caption, .inline-group h2{
 
-    background:#307dad;
+    background: #3329ba;
 }
 a:link, a:visited{
 
@@ -35,7 +35,7 @@ h1{
 }
 
 div.breadcrumbs{
-    background:#304982;
+    background:#6c62f6;
 
 }
 

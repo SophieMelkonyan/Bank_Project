@@ -1,0 +1,72 @@
+{% load static %}
+{%load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<script>
+function changeLanguage(language) {
+  var currentUrl = window.location.href;
+  var newUrl;
+
+  if (currentUrl.indexOf('/ru/') !== -1) {
+    newUrl = currentUrl.replace('/ru/', '/' + language + '/');
+  } else if (currentUrl.indexOf('/en/') !== -1) {
+    newUrl = currentUrl.replace('/en/', '/' + language + '/');
+  } else if (currentUrl.indexOf('/hy/') !== -1) {
+    newUrl = currentUrl.replace('/hy/', '/' + language + '/');
+  } else {
+    // If language prefix doesn't exist in the URL, add it
+    newUrl = '/' + language + currentUrl;
+  }
+
+  window.location.href = newUrl;
+}
+</script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'img/img1.png' %}"
+      type="image/x-icon" sizes="64x64">
+    <title>{% trans "International Bank" %}</title>
+    <link rel="stylesheet" href="{% static 'css/main_base.css' %}">
+</head>
+<body>
+
+<div class="language">
+        
+    <a href="#" onclick="changeLanguage('ru')" role="button"><img src ="{% static 'img/russia.png' %}"></a>
+   <a href="#" onclick="changeLanguage('en')" role="button"><img src ="{% static 'img/united-kingdom.png' %}"></a>
+     <a href="#" onclick="changeLanguage('hy')" role="button"><img src ="{% static 'img/armenia.png' %}"></a>
+    </div>
+
+<link rel="stylesheet" href="{% static 'css/worker.css' %}">
+<div class="report-container"> 
+                <div class="report-header"> 
+                    <h1 class="recent-Articles">{% trans "Latest Services" %}</h1> 
+                    <button class="view"><a href="{% url 'user:users' %}" >{% trans "View Users"%} </a></button> 
+                </div> 
+  
+                <div class="report-body"> 
+                    <div class="report-topic-heading"> 
+                        <h3 class="t-op">{% trans "Service Type" %}</h3> 
+                        <h3 class="t-op">{%  trans "Window" %}</h3> 
+                        <h3 class="t-op">{% trans "Create at" %}</h3> 
+                        <h3 class="t-op"></h3> 
+                    </div> 
+                    {% for service in services %}
+                    <div class="items"> 
+                        <div class="item1"> 
+                            <h3 class="t-op-nextlvl">{{ service.type }}{{ service.number }}</h3> 
+                            <h3 class="t-op-nextlvl">{{ service.windows }}</h3> 
+                            <h3 class="t-op-nextlvl">{{ service.created_at }}</h3> 
+                             <form action="{% url 'service:delete' service.service_id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete">{% trans "Delete" %}</button>
+            </form>
+                        </div> 
+                        {%  endfor %}
+  
+                        
+  
+                    </div> 
+                </div> 
+            </div> 

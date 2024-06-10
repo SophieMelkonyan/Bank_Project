@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, TemplateView
 from .models import Profile
+from django.contrib.auth.models import Group
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -14,6 +15,7 @@ from .tasks import send_simple_email
 from django.template.loader import render_to_string
 from .generate_token import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
+from helpers.decoraters import OwnProFileMixin
 
 
 User = get_user_model()
@@ -36,7 +38,6 @@ class EmailView(FormView):
         return response
 
 
-
 class RegistrationView(CreateView):
     form_class = CustomUserCreationForm
     model = User
@@ -46,6 +47,8 @@ class RegistrationView(CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         user = self.object
+        customer_group = Group.objects.get(name='customer')
+        user.groups.add(customer_group)
         subject = "Authenticate your Profile"
         user.is_active = False
         user.save()
@@ -60,8 +63,6 @@ class RegistrationView(CreateView):
         email.send(fail_silently=False)
         messages.success(self.request, "You have successfully registered")
         return response
-
-
 
 
 class ValidateUserLink(TemplateView):
@@ -85,6 +86,8 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+            if user.groups.filter(name='worker').exists():
+                return redirect("service:worker")
 
             return redirect("user:profile", pk=request.user.id)
         else:
@@ -93,9 +96,18 @@ def login_view(request):
 
     return HttpResponse(render(request, "user/login.html"))
 
+class UserList(TemplateView):
+    template_name = "profile/worker1.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        profiles = Profile.objects.all()
+        context['profiles'] = profiles
+        return context
+
+
 class CreateProfile(FormView, DetailView):
     model = Profile
-
     template_name = 'profile/profile.html'
     context_object_name = "profile"
     form_class = ProfileForm
@@ -116,7 +128,7 @@ class CreateProfile(FormView, DetailView):
 
     def form_valid(self, form):
         profile = self.get_object()
-        profile.balance = form.cleaned_data["balance"]
+        profile.balance += form.cleaned_data["balance"]
 
         profile.save()
         return super().form_valid(form)

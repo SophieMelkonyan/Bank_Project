@@ -148,7 +148,7 @@ input {
     cursor: pointer;
     background-color: #4841a1;
 }
-.pinpad-btn1 {
+#but {
     width: 53%;
     height: 75px;
     margin: 5px;

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-05 23:35+0400\n"
+"POT-Creation-Date: 2024-05-16 04:15+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,8 @@ msgstr "Введите сумму, которую хотите получить"
 msgid "Submit"
 msgstr "подтвердит"
 
-#: .\templates\main_base.html:29
+#: .\templates\main_base.html:29 .\templates\profile\worker.html:29
+#: .\templates\profile\worker1.html:29
 msgid "International Bank"
 msgstr "Международный Банк"
 
@@ -90,6 +91,58 @@ msgstr "Ваш пин_код:"
 msgid "Your balance:"
 msgstr "Ваш баланс:"
 
+#: .\templates\profile\worker.html:44
+msgid "Latest Services"
+msgstr "Услуги"
+
+#: .\templates\profile\worker.html:45
+msgid "View Users"
+msgstr "Пользователи"
+
+#: .\templates\profile\worker.html:50
+msgid "Service Type"
+msgstr "Вид услуги"
+
+#: .\templates\profile\worker.html:51
+msgid "Window"
+msgstr "Oкно"
+
+#: .\templates\profile\worker.html:52
+msgid "Create at"
+msgstr "Создан в"
+
+#: .\templates\profile\worker.html:63
+#: .\venv\lib\python3.11\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\profile\worker1.html:44
+msgid "User List"
+msgstr "Пользователи"
+
+#: .\templates\profile\worker1.html:45
+
+msgid "View Services"
+msgstr "Услуги"
+
+#: .\templates\profile\worker1.html:50
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\templates\profile\worker1.html:51
+
+msgid "email"
+msgstr "Электронная почта"
+
+#: .\templates\profile\worker1.html:52
+
+msgid "balance"
+msgstr "Ваш баланс:"
+
+#: .\templates\profile\worker1.html:53
+msgid "card numbers"
+msgstr "номера карт"
+
 #: .\templates\registration\password_reset_complete.html:3
 msgid "Congratulations Your Password changed successfully"
 msgstr "Поздравляем! Ваш пароль успешно изменен."
@@ -115,7 +168,6 @@ msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
 #: .\templates\registration\password_reset_confirm.html:32
-
 msgid "password2"
 msgstr "Пароль2"
 
@@ -1088,10 +1140,6 @@ msgstr[1] ""
 msgid "Order"
 msgstr ""
 
-#: .\venv\lib\python3.11\site-packages\django\forms\formsets.py:499
-msgid "Delete"
-msgstr ""
-
 #: .\venv\lib\python3.11\site-packages\django\forms\models.py:899
 #, python-format
 msgid "Please correct the duplicate data for %(field)s."
@@ -1739,8 +1787,3 @@ msgstr ""
 
 #~ msgid "English"
 #~ msgstr "Английский"
-
-#, fuzzy
-#~| msgid "Services"
-#~ msgid " Services"
-#~ msgstr "услуги"
