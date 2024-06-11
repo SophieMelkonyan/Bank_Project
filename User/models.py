@@ -86,7 +86,6 @@ class Profile(models.Model):
         super().save(*args, **kwargs)
 
 
-
     def is_luhn_valid(self, card_number):
         return self.luhn_checksum(card_number) == 0
 
